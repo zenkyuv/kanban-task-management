@@ -1,0 +1,38 @@
+{
+  "name": "kanban-task-management",
+  "version": "1.0.0",
+  "description": "kanban task management web app",
+  "main": "index.js",
+  "scripts": {
+		"build": "run-s clean && run-p typescript importmap && run-s bundle",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf x && mkdir -p x",
+    "build-production": "run-s clean && run-p typescript importmap && run-s bundle web-production",
+    "web-production": "node x/web/build.js production",
+    "bundle": "rollup x/main.js -p @rollup/plugin-node-resolve --format es --file x/main.bundle.js",
+    "importmap": "importly --root=/multi-step-form --host=node_modules < package-lock.json > x/importmap.json",
+    "http": "http-server",
+    "web": "turtle --in s/web:x/web --out x --verbose true",
+    "start": "run-p http watch",
+    "typescript": "tsc",
+    "watch": "run-p watch-typescript",
+    "watch-typescript": "tsc -w",
+    "importly": "importly --host=node_modules < package-lock.json > x/importmap.json"
+  },
+  "author": "zenkyuv",
+  "license": "ISC",
+	"devDependencies": {
+		"http-server": "^14.1.1",
+		"importly": "^0.2.0",
+		"npm-run-all": "^4.1.5",
+		"typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@benev/turtle": "^0.1.2",
+		"es-module-shims": "^1.7.0",
+    "@chasemoskal/magical": "^0.1.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "lit": "^2.6.1",
+    "rollup": "^3.24.0"
+  }
+}

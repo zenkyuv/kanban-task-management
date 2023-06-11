@@ -1,4 +1,4 @@
-{
+export default {
   "boards": [
     {
       "name": "Platform Launch",

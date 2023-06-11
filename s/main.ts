@@ -1,10 +1,14 @@
-import data from "./data"
-import {Header} from "./elements/header/element.js"
+import data from "./data.js"
 import {registerElements} from "@chasemoskal/magical"
+import {MainPanel} from "./elements/main-panel/element.js"
+import {HeaderPanel} from "./elements/header-panel/element.js"
+import {SidebarPanel} from "./elements/sidebar-panel/element.js"
 
 const context = data
 
 registerElements({
-	Header: Header.withContext(context)
+	MainPanel: MainPanel.withContext(context),
+	HeaderPanel: HeaderPanel.withContext(context),
+	SidebarPanel: SidebarPanel.withContext(context)
 	}
 )

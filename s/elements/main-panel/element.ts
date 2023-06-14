@@ -1,10 +1,16 @@
-import {Data} from "../../types";
 import {LitElement, html} from "lit"
-import {mixinContextRequirement} from "@chasemoskal/magical"
+import {mixinContextRequirement, mixinCss} from "@chasemoskal/magical"
 
+import {Data} from "../../types"
+import {styles} from "./style.css.js"
+import {Columns} from "./views/columns.js"
+
+@mixinCss(styles)
 export class MainPanel extends mixinContextRequirement<Data>()(LitElement) {
 	render() {
 		const data = this.context
-		return html`<p>data: ${data}</p>`
+		return html`
+			${Columns(data)}
+		`
 	}
 }

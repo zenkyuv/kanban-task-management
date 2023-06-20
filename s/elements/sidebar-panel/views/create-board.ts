@@ -1,8 +1,8 @@
+import {html} from "lit"
 import {view} from "@chasemoskal/magical"
 
-import {html} from "lit"
 import {Data} from "../../../types"
-import {renderAddBoardPanel} from "../renderers/render-add-board-panel.ts.js"
+import {AddBoardPanel} from "./add-board-panel.js"
 
 export const CreateBoard = view({}, use => (
 	{
@@ -12,7 +12,6 @@ export const CreateBoard = view({}, use => (
 
 	const [boards, setBoards] = use.state(() => data.boards)
 	const [newBoardPanelOpened, setNewBoardPanelOpened] = use.state(false)
-	const [newBoards, setNewBoards] = use.state<string[]>(["Todo", "Doing"])
 
 	use.setup(() => track(({ data: { boards }}) => setBoards(boards)))
 
@@ -23,7 +22,7 @@ export const CreateBoard = view({}, use => (
 		}>+Create New Board</button>
 		</div>
 		${newBoardPanelOpened
-			? renderAddBoardPanel(setNewBoardPanelOpened, setData, newBoards, setNewBoards)
+			? AddBoardPanel({setNewBoardPanelOpened, setData})
 			: null}
 	`
 })

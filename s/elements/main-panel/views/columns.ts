@@ -8,25 +8,29 @@ export const Columns = view({}, use => ({state: {track, state: {data}}, actions:
 
 	const [boards, setBoards] = use.state(data.boards)
 	const [taskViewData, setTaskViewData] = use.state<null | Task>(null)
-	const [openedBoard, setOpenedBoard] = use.state("")
-	use.setup(() => track(({ data, openedBoard },) => {
+	const [openedBoardName, setOpenedBoardName] = use.state("")
+	use.setup(() => track(({ data, openedBoard }) => {
 		setBoards(data.boards)
-		setOpenedBoard(openedBoard)
+		setOpenedBoardName(openedBoard)
 	}))
+
+	const openedBoard = data.boards.find(board => board.name == openedBoardName)
 
 	return html`
 		<div class=columns>
-			${boards.find(board => board.name == openedBoard)?.columns.map(({ tasks, name }) => html`
+			${openedBoard?.columns?.map(({ tasks, name }) => html`
 			<div class=column>
 				<h2 class="column-name">${name}</h2>
-				<div class=tasks>${tasks.map(data => html`
+				<div ?data-notasks=${!(!!tasks)} class=tasks>${tasks?.map(data => html`
 					<div @pointerdown=${() => setTaskViewData(data)} class=task>
 						<h2>${data.title}</h2>
 						<p>${data.subtasks.filter(({ isCompleted }) => isCompleted).length} out of ${data.subtasks.length}</p>
 					</div>`)}
 				</div>
 			</div>`)}
-			${taskViewData ? renderTaskPanel(taskViewData, setTaskViewData) : null}
+			${taskViewData
+				? renderTaskPanel(taskViewData, setTaskViewData, openedBoard, setData, data)
+				: null}
 		</div>
 	`
 })

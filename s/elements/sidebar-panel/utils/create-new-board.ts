@@ -12,9 +12,7 @@ export function createNewBoard({setData, newBoardData}: {
 			name: newBoardData.boardName,
 			columns: [...newBoardData.columns.map(columnName => {
 				return {
-					name: columnName, tasks: [{
-						title: "", description: "", status: "", subtasks: [{ title: "", isCompleted: false }]
-					}]
+					name: columnName, tasks: undefined
 				}
 			})]
 		}]

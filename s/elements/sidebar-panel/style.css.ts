@@ -11,16 +11,13 @@ export const styles = css`
 		flex-direction: column;
 	}
 	.sidebar-header {
-		margin: 1rem;
+		display: flex;
+		margin: 1rem 1rem 2rem 1rem;
 		color: white;
 	}
-	.sidebar-header, .all-boards {
+	.all-boards {
 		margin-left: 1rem;
-	}
-	.all-boards {
 		margin-bottom: 1em;
-	}
-	.all-boards {
 		font-size: 12px;
 		color: #828FA3;
 	}
@@ -43,19 +40,18 @@ export const styles = css`
 	}
 	.board-button button {
 		color: #828FA3;
+		cursor: pointer;
 	}
 	.board-button[data-active] {
 		background-color: #635FC7;
 		border-top-right-radius: 25px;
 		border-bottom-right-radius: 25px;
 		color: white;
-	}
-	.board-button[data-active] button {
-		color: white;
-	}
-	.board-button[data-active] img {
-		filter: brightness(0) invert(1);
-		color: white;
+		& button {color: white;}
+		& img {
+			filter: brightness(0) invert(1);
+			color: white;
+		}
 	}
 	.create-board-btn button, .board-button button {
 		font-size: 15px;
@@ -64,6 +60,47 @@ export const styles = css`
 	}
 	.create-board-btn button {
 		color: #635FC7;
+		cursor: pointer;
+	}
+	.add-board-panel-background {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		background-color: rgb(0 0 0 / 50%);
+		left: 0;
+		width: 100%;
+		height: 100%;
+		top: 0;
+	}
+	.add-board-panel {
+		width: 480px;
+		background-color: #2B2C37;
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3em;
+	}
+	.add-board-panel {
+		& h2, label {
+			color: white;
+			font-size: 18px;
+		}
+		& h2 {
+			margin-bottom: 1em;
+			font-size: 23px;
+		}
+		& label {
+			margin-bottom: 0.3em;
+			font-size: 15px;
+		}
+	}
+	.board-name {
+		margin-bottom: 1em;
+		padding: 0.5em;
+		border: 1px solid rgb(130 143 163 / 25%);
+		border-radius: 4px;
+		background-color: transparent;
 	}
 	.toggle-theme {
 		display: flex;
@@ -107,5 +144,41 @@ export const styles = css`
 		background-color: transparent;
 		color: #828FA3;
 		cursor: pointer;
+	}
+	.new-column {
+		display: flex;
+		margin-bottom: 0.3em;
+		color: white;
+		& input {
+			flex: 1;
+			padding: 0.5em;
+			background-color: transparent;
+			border: 1px solid rgb(130 143 163 / 25%);
+			border-radius: 4px;
+			color: white;
+		}
+		& img {
+			padding: 0.5em;
+		}
+	}
+	.add-column-btn {
+		padding: 1em;
+		border-radius: 20px;
+		background-color: white;
+		color: #635FC7;
+		border: none;
+	}
+	.create-new-board-btn {
+		background-color: #635FC7;
+		color: white;
+		padding: 1em;
+		border-radius: 20px;
+		border: none;
+	}
+	.buttons {
+		margin-top: 0.5em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7em;
 	}
 `

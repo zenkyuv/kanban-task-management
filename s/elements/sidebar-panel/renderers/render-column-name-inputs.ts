@@ -1,28 +1,17 @@
 import {html} from "lit"
-import {StateSetter} from "@chasemoskal/magical"
+import {CreateBoardButtonState} from "../../../types.js"
 
-export function renderColumnNameInputs(
-	columns: any[],
-	setNewBoard: StateSetter<{
-		boardName: string
-		columns: string[]
-	}>) {
-
-	return columns.map((newColumn, i) => html`
+export function renderColumnNameInputs({get_inputs, set_input_value, remove_input}: CreateBoardButtonState) {
+	return get_inputs().map((newColumn, i) => html`
 		<div class="new-column">
 			<input
-				value="${newColumn}"
+				.value="${newColumn}"
 				name="board-column-name"
-				@input=${(e: InputEvent) => {
-					columns[i] = (e.target as HTMLInputElement).value
-					setNewBoard(newBoard => ({ ...newBoard, columns: [...newBoard.columns] }))}}/>
-			<img @pointerdown=${() => {
-				const filtered = columns.slice(0,i).concat(newColumn.slice(i+1))
-				setNewBoard(newBoard => ({
-					...newBoard,
-					columns: filtered
-				}))
-			}} src="/assets/icon-cross.svg"/>
+				@input=${(e: InputEvent) => set_input_value(i, e)}
+			/>
+			<img
+				@pointerdown=${() => remove_input(i)}
+				src="/assets/icon-cross.svg"/>
 		</div>
 	`)
 }

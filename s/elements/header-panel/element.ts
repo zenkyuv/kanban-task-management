@@ -4,15 +4,15 @@ import {QuickElement} from "@benev/frog"
 import {Context} from "../../main"
 import {styles} from "./style.css.js"
 import {HeaderMenu} from "./views/header-menu.js"
+import {ContextManager} from "./utils/context_manager.js"
 import {AddNewTaskButton} from "./views/add-new-task-button.js"
-import {setup_context_manager} from "./utils/setup_context_manager.js"
 
 export const HeaderPanel = (context: Context) => class extends QuickElement {
 	static styles = styles
-	
+
 	render() {
 
-		const context_manager = setup_context_manager(
+		const context_manager = new ContextManager(
 			context.data.value,
 			() => context.data.publish()
 		)

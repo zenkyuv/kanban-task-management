@@ -1,19 +1,18 @@
 import {html} from "lit"
 import {view} from "@chasemoskal/magical"
 
-import {ActivePanel} from "../../../types.js"
-import {panels} from "../utils/get_active_panel.js"
-import {ContextManager} from "../utils/context_manager.js"
-import {setup_header_menu_actions} from "../action-setups/setup_header_menu_actions.js"
+import {styles} from "./styles.css.js"
+import {context} from "../../../../main.js"
+import {ActivePanel} from "../../../../types.js"
+import {main_styles} from "../../main-style.css.js"
+import {panels} from "../../utils/get_active_panel.js"
+import {setup_state_actions} from "./setups/setup_state_actions.js"
 
-export const HeaderMenu = view({}, use => (context_manager: ContextManager) => {
-
+export const HeaderMenu = view({styles: [styles, main_styles], shadow: true}, use => (context: context) => {
 	const [menuOpen, setMenuOpen] = use.state(false)
 	const [activePanel, setActivePanel] = use.state<ActivePanel>("")
 
-	const actions = setup_header_menu_actions(
-		setActivePanel
-	)
+	const actions = setup_state_actions(setActivePanel)
 
 	return html`
 		<img
@@ -28,7 +27,7 @@ export const HeaderMenu = view({}, use => (context_manager: ContextManager) => {
 					setMenuOpen(!menuOpen)
 				}} class=panel-background>
 					<div class=menu-items>
-						<p class="p-edit" @pointerdown=${() => {
+						<p part="tak" class="p-edit" @pointerdown=${() => {
 							setActivePanel("edit_board_panel")
 							setMenuOpen(false)
 							}}>
@@ -46,7 +45,7 @@ export const HeaderMenu = view({}, use => (context_manager: ContextManager) => {
 			: null}
 
 		${activePanel
-			? panels[activePanel](actions, context_manager)
+			? panels[activePanel](actions, context)
 			: null}
 	`
 })

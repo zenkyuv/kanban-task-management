@@ -1,12 +1,15 @@
 import {html} from "lit"
 import {view} from "@chasemoskal/magical"
 
-import {HeaderMenuState} from "../types"
-import {ContextManager} from "../utils/context_manager"
 
-export const DeleteBoardPanel = view({}, use => (
+import {styles} from "./styles.css.js"
+import {context} from "../../../../main"
+import {HeaderMenuState} from "../../types"
+import {main_styles} from "../../main-style.css.js"
+
+export const DeleteBoardPanel = view({styles: [styles, main_styles], shadow: true}, use => (
 	{hide_panel}: HeaderMenuState,
-	{delete_board}: ContextManager) => {
+	{actions: {delete_board}}: context) => {
 
 	return html`
 		<div @pointerdown=${hide_panel} class="panel-background">

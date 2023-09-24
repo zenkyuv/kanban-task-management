@@ -6,14 +6,16 @@ export const styles = css`
 	position: absolute;
 	right: 1%;
 	top: 10%;
-	padding: 0.8em;
+	padding: 0.5em;
 	border-radius: 8px;
-	background-color: #20212C;
+	background: var(--very-dark-grey);
+}
 
-	& p {
-		cursor: pointer;
-	}
-
+p {
+	font-size: var(--body-l);
+	font-weight: 500;
+	cursor: pointer;
+	margin: 0.5em;
 }
 
 .menu-dots {
@@ -27,15 +29,8 @@ export const styles = css`
 	margin-bottom: 0.5em;
 }
 
-.menu-background {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	background-color: rgb(0 0 0 / 50%);
-	left: 0;
-	width: 100%;
-	height: 100%;
-	top: 0;
+.p-delete {
+	color: var(--red);
 }
+
 `

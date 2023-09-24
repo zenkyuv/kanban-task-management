@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Plus Jakarta Sans;
+}
+.panels {
+	display: flex;
+	height: 100%;
+}
+.column {
+	display: flex;
+	flex-direction: column;
+	flex: 85%;
+}
+
+html, body, canvas {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 24px;
+	/* colors */
+	--main-purple: #635FC7;
+	--main-purple-hover: #A8A4FF;
+	--black: #000112;
+	--very-dark-grey: #20212C;
+	--dark-grey: #2B2C37;
+	--lines-dark: #3E3F4E;
+	--medium-grey: #828FA3;
+	--lines-light: #E4EBFA;
+	--light-grey-light-bg: #F4F7FD;
+	--white: #FFFFFF;
+	--red: #EA5555;
+	--red-hover: #FF9898;
+	/* typography */
+	--heading-xl: 1rem;
+	--heading-l: 0.75rem;
+	--heading-m: 0.625rem;
+	--heading-s: 0.5rem;
+	--body-l: 0.542rem;
+	--body-s: 0.5rem;
+}
+

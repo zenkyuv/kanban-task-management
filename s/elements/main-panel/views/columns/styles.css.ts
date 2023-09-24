@@ -10,6 +10,7 @@ export const styles = css`
 	display: flex;
 	flex-direction: column;
 	gap: 0.2em;
+	cursor: pointer;
 }
 
 .tasks {
@@ -23,10 +24,8 @@ export const styles = css`
 	border-radius: 5px;
 }
 
-.task h2 {
-	font-size: 15px;
-	font-weight: 700;
-	color: white;
+h3 {
+	color: var(--white);
 }
 
 .task p {

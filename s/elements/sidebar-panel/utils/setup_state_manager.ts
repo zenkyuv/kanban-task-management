@@ -1,6 +1,10 @@
-import { StateSetter } from "@chasemoskal/magical"
+import {StateSetter} from "@chasemoskal/magical"
 
-export function setup_state_manager(setInputs: StateSetter<string[]>, inputs: string[], setPanelOpen: StateSetter<boolean>) {
+export function setup_state_manager(
+	setInputs: StateSetter<string[]>,
+	inputs: string[],
+	setPanelOpen: StateSetter<boolean>
+) {
 	return {
 		remove_input: (i: number) =>
 			setInputs((inputs) =>
@@ -12,10 +16,17 @@ export function setup_state_manager(setInputs: StateSetter<string[]>, inputs: st
 				return copy
 			}),
 		hide_create_board_panel: (e: PointerEvent) => {
-			if ((e.target as HTMLElement).className === "add-board-panel-background")
+			if ((e.target as HTMLElement).className === "panel-background")
 				setPanelOpen(false)
 		},
 		add_input: () => setInputs(inputs => [...inputs, ""]),
-		get_inputs: () => inputs
+		get_inputs: () => inputs,
+		get_board_data: (e: SubmitEvent) => {
+			e.preventDefault()
+			const formData = new FormData(e.target as HTMLFormElement)
+			const boardName = formData.get("board name") as string
+			const boardColumnsNames = formData.getAll("board-column-name") as string[]
+			return {boardName, boardColumnsNames}
+		}
 	}
 }

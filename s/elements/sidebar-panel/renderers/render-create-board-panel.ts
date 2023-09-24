@@ -1,29 +1,28 @@
 import {html} from "lit"
 
-import {renderColumnNameInputs} from "./render-column-name-inputs.js"
-import {ContextManager, CreateBoardButtonState} from "../../../types.js"
+import {context} from "../../../main.js"
+import {CreateBoardState} from "../../../types.js"
+import {EditableInputs} from "../../shared-views/editable-inputs/view.js"
 
 export function renderCreateBoardPanel(
-	{...state}: CreateBoardButtonState,
-	{...cm}: ContextManager) {
+	{...state}: CreateBoardState,
+	{actions: {add_new_board}}: context) {
+
 	return html`
 		<div
-			@pointerdown=${(e: PointerEvent) => state.hide_create_board_panel(e)}
-			class=add-board-panel-background>
-			<form @submit=${(e: SubmitEvent) => cm.create_new_board(e)} class=add-board-panel>
+			@pointerdown=${state.hide_create_board_panel}
+			class=panel-background>
+			<form @submit=${add_new_board} class=panel>
 				<h2>Add New Board</h2>
 				<label for="board-name">Board Name</label>
 				<input
-					class="board-name"
+					placeholder="e.g. Web Design"
 					name=board-name 
 				/>
 				<label for="board-column-name">Board Columns</label>
-				${renderColumnNameInputs({...state})}
+				${EditableInputs(state.get_inputs(), "board-column-name", "+ Add New Column")}
 				<div class="buttons">
-					<button @pointerdown=${() => state.add_input()} class="add-column-btn">
-						+Add New Column
-					</button>
-					<button type="submit" class="create-new-board-btn">
+					<button type="submit" class="button-primary-s">
 						Create New Board
 					</button>
 				</div>

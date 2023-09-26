@@ -18,15 +18,15 @@ export interface AddNewTaskState {
 }
 
 export interface TaskFormData {
-	subtasks: string[];
-	description: string;
-	title: string;
+	subtasks: Subtask[]
+	description: string
+	title: string
 	status: string
 }
 
 export interface FormValidity {
 	title: false,
-	description: false,
+	description: false
 	subtasks: boolean[]
 }
 
@@ -46,4 +46,9 @@ export interface TaskData {
 			isValid: boolean
 			value: string
 	}[]
+}
+
+export interface Subtask {
+	title: string
+	isCompleted: boolean
 }

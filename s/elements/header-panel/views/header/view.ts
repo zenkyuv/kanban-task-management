@@ -7,9 +7,9 @@ import {styles} from "./styles.css.js"
 import {context} from "../../../../main.js"
 import {mainStyles} from "../../../../main-styles.js"
 
-export const Header = view({
-	styles: [styles, mainStyles],
-	shadow: true}, use => (context: context) => {
+export const Header = view({styles: [styles, mainStyles], shadow: true}, use => (
+	context: context
+) => {
 
 	const [sidebarOpen, setSidebarOpen] = use.state(false)
 

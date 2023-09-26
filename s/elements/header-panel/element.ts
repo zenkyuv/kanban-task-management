@@ -1,27 +1,22 @@
 import {html} from "lit"
 import {QuickElement} from "@benev/frog"
 
-import {Context} from "../../main"
-import {styles} from "./style.css.js"
-import {HeaderMenu} from "./views/header-menu.js"
-import {ContextManager} from "./utils/context_manager.js"
-import {AddNewTaskButton} from "./views/add-new-task-button.js"
+import {context} from "../../main.js"
+import {styles} from "./styles.css.js"
+import {Header} from "./views/header/view.js"
+import {HeaderMenu} from "./views/header-menu/view.js"
+import {AddNewTaskButton} from "./views/add-new-task-button/view.js"
 
-export const HeaderPanel = (context: Context) => class extends QuickElement {
+export const HeaderPanel = (context: context) => class extends QuickElement {
 	static styles = styles
+	#unsub = context.on_state_change(() => this.requestUpdate())
 
 	render() {
-
-		const context_manager = new ContextManager(
-			context.data.value,
-			() => context.data.publish()
-		)
-
 		return html`
 			<header class=row>
-				<div class="main-header"><h1>Platform Launch</h1></div>
-				${AddNewTaskButton(context_manager)}
-				${HeaderMenu(context_manager)}
+				${Header(context)}
+				${AddNewTaskButton(context)}
+				${HeaderMenu(context)}
 			</header>
 		`
 	}

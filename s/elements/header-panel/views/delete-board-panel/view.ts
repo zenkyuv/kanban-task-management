@@ -5,20 +5,21 @@ import {view} from "@chasemoskal/magical"
 import {styles} from "./styles.css.js"
 import {context} from "../../../../main"
 import {HeaderMenuState} from "../../types"
-import {main_styles} from "../../main-style.css.js"
+import {mainStyles} from "../../../../main-styles.js"
 
-export const DeleteBoardPanel = view({styles: [styles, main_styles], shadow: true}, use => (
+export const DeleteBoardPanel = view({styles: [styles, mainStyles], shadow: true}, use => (
 	{hide_panel}: HeaderMenuState,
-	{actions: {delete_board}}: context) => {
+	{actions: {delete_board}}: context
+) => {
 
 	return html`
 		<div @pointerdown=${hide_panel} class="panel-background">
-			<div class="delete-board-panel">
-				<h2 class="h2-delete">Delete this board?</h2>
+			<div class="panel">
+				<h2>Delete this board?</h2>
 				<p>Are you sure you want to delete the 'Platform Launch' board? This action will remove all columns and tasks and cannot be reversed.</p>
 				<div class="btn-row">
-					<button @pointerdown=${delete_board} class="btn-delete">Delete</button>
-					<button @pointerdown=${hide_panel} class="btn-cancel">Cancel</button>
+					<button @pointerdown=${delete_board} class="button-destructive">Delete</button>
+					<button @pointerdown=${hide_panel} class="button-secondary">Cancel</button>
 				</div>
 			</div>
 		</div>

@@ -4,16 +4,19 @@ import {view} from "@chasemoskal/magical"
 
 import {styles} from "./styles.css.js"
 import {context} from "../../../../main.js"
-import {main_styles} from "../../main-style.css.js"
+import {mainStyles} from "../../../../main-styles.js"
 import {AddNewTaskPanel} from "../add-new-task-panel/view.js"
 
-export const AddNewTaskButton = view({styles: [styles, main_styles], shadow: true}, use => (context: context) => {
+export const AddNewTaskButton = view({styles: [styles, mainStyles], shadow: true}, use => (
+	context: context
+) => {
 
 	const [panelOpen, setPanelOpen] = use.state(false)
 
 	return html`
-		<button @pointerdown=${() => setPanelOpen(!panelOpen)} class="add-new-task-btn">
-			+ Add New Task
+		<button @pointerup=${() => setPanelOpen(!panelOpen)} class="button-primary-l ebe">
+			<span>+ Add New Task</span>
+			<img src="assets/icon-add-task-mobile.svg" />
 		</button>
 		${panelOpen
 			? AddNewTaskPanel(setPanelOpen, context)

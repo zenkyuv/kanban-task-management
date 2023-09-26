@@ -7,7 +7,7 @@ export const styles = css`
 	display: flex;
 	flex: 80%;
 	flex-direction: column;
-	overflow-y: scroll;
+	overflow-x: scroll;
 }
 
 .columns, .headers, .tasks {

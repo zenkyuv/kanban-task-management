@@ -1,4 +1,4 @@
-import {css} from "@chasemoskal/magical"
+import {css} from "lit"
 
 export const styles = css`
 
@@ -11,6 +11,7 @@ export const styles = css`
 	flex-direction: column;
 	gap: 0.2em;
 	cursor: pointer;
+	width: 260px;
 }
 
 .tasks {

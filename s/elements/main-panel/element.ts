@@ -1,16 +1,17 @@
-import {LitElement, html} from "lit"
-import {mixinContextRequirement, mixinCss} from "@chasemoskal/magical"
+import {html} from "lit"
+import {QuickElement} from "@benev/frog"
 
-import {Data} from "../../types"
-import {styles} from "./style.css.js"
-import {Columns} from "./views/columns.js"
+import {styles} from "./style.js"
+import {context} from "../../main.js"
+import {Columns} from "./views/columns/view.js"
 
-@mixinCss(styles)
-export class MainPanel extends mixinContextRequirement<Data>()(LitElement) {
+export const MainPanel = (context: context) => class extends QuickElement {
+	static styles = styles
+	#unsub = context.on_state_change(() => this.requestUpdate())
+
 	render() {
-		const data = this.context
 		return html`
-			${Columns(data)}
+			${Columns(context)}
 		`
 	}
 }

@@ -1,8 +1,8 @@
-import {css} from "@chasemoskal/magical"
+import {css} from "lit"
 
 export const styles = css`
 
-.panel {
+.panel-background {
 	z-index: 1;
 }
 

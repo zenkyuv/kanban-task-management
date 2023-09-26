@@ -5,9 +5,10 @@ import {styles} from "./styles.css.js"
 import {Task} from "../../../../types.js"
 import {context} from "../../../../main.js"
 import {TaskPanel} from "../task-panel/view.js"
+import {mainStyles} from "../../../../main-styles.js"
 import {setup_state_actions} from "./setups/setup_state_actions.js"
 
-export const Columns = view({styles, shadow: true}, use => (
+export const Columns = view({styles: [styles, mainStyles], shadow: true}, use => (
 	context: context
 ) => {
 
@@ -21,7 +22,7 @@ export const Columns = view({styles, shadow: true}, use => (
 				<h2 class="column-name">${name}</h2>
 				<div ?data-notasks=${!(!!tasks)} class=tasks>${tasks?.map(task => html`
 					<div @pointerup=${() => setTaskViewData(task)} class=task>
-						<h2>${task.title}</h2>
+						<h3>${task.title}</h3>
 						<p>${task.subtasks.filter(({isCompleted}) => isCompleted).length} out of ${task.subtasks.length}</p>
 					</div>`)}
 				</div>

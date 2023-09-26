@@ -1,5 +1,5 @@
-
 import {html} from "lit"
+
 import {Task} from "../../../../../types.js"
 
 export function renderSubtasks(task: Task | null) {

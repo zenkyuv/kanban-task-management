@@ -3,11 +3,12 @@ import {view, StateSetter} from "@chasemoskal/magical"
 
 import {styles} from "./styles.css.js"
 import {context} from "../../../../main.js"
+import {mainStyles} from "../../../../main-styles.js"
 import {ActivePanel, ColumnsState} from "../../types.js"
 import {DeleteTaskPanel} from "../delete-task-panel/view.js"
 import {setup_state_actions} from "./setups/setup_state_actions.js"
 
-export const TaskPanelMenu = view({styles, shadow: true}, use => (
+export const TaskPanelMenu = view({styles: [styles, mainStyles], shadow: true}, use => (
 	context: context,
 	columns_state: ColumnsState,
 	activePanel: ActivePanel,
@@ -25,9 +26,9 @@ export const TaskPanelMenu = view({styles, shadow: true}, use => (
 		${menuOpen
 			? html`
 				<div @pointerdown=${({target}: PointerEvent) => {
-					if((target as HTMLElement).className === "menu-background")
+					if((target as HTMLElement).className === "panel-background")
 					setMenuOpen(!menuOpen)
-				}} class=menu-background>
+				}} class=panel-background>
 					<div class=menu-items>
 						<p class="p-edit" @pointerdown=${() => {
 							setActivePanel("edit_task")

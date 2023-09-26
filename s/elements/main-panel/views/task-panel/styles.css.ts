@@ -1,10 +1,9 @@
-
-import {css} from "@chasemoskal/magical"
+import {css} from "lit"
 
 export const styles = css`
 
 .panel {
-	gap: 1em;
+	gap: 0.5em;
 }
 
 h2 {

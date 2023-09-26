@@ -6,7 +6,7 @@ import {context} from "../../../../main"
 import {HeaderMenuState} from "../../types"
 import {mainStyles} from "../../../../main-styles.js"
 import {setup_state_actions} from "./setups/setup_state_actions.js"
-import {EditableInputs} from "../../../shared-views/editable-inputs/view.js"
+import {EditableInputs} from "../../../views/editable-inputs/view.js"
 
 export const EditBoardPanel = view({styles: [styles, mainStyles], shadow: true}, use => (
 	{hide_panel}: HeaderMenuState,

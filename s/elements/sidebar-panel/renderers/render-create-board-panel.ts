@@ -2,7 +2,7 @@ import {html} from "lit"
 
 import {context} from "../../../main.js"
 import {CreateBoardState} from "../../../types.js"
-import {EditableInputs} from "../../shared-views/editable-inputs/view.js"
+import {EditableInputs} from "../../views/editable-inputs/view.js"
 
 export function renderCreateBoardPanel(
 	{...state}: CreateBoardState,

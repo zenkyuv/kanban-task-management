@@ -7,7 +7,7 @@ import {context} from "../../../../main.js"
 import {mainStyles} from "../../../../main-styles.js"
 import {ColumnsState, TaskPanelState} from "../../types.js"
 import {setup_state_actions} from "./setups/setup_state_actions.js"
-import {EditableInputs} from "../../../shared-views/editable-inputs/view.js"
+import {EditableInputs} from "../../../views/editable-inputs/view.js"
 
 export const EditTaskPanel = view({styles: [styles, mainStyles], shadow: true}, use => (
 	{actions: {edit_task}, state: {active_board}}: context,

@@ -19,6 +19,8 @@ input, textarea {
 	padding: 1.3em;
 	background: var(--dark-grey);
 	border-radius: 6px;
+	max-height: 100%;
+	overflow-y: scroll;
 }
 
 .panel-background {
@@ -31,6 +33,7 @@ input, textarea {
 	width: 100%;
 	height: 100%;
 	top: 0;
+	animation: panel_open 500ms forwards;
 }
 
 input:not([type="checkbox"]), textarea, select {
@@ -83,6 +86,7 @@ input:not([type="checkbox"]), textarea, select {
 
 .button-primary-s {
 	border-radius: 20px;
+	min-width: 150px;
 	padding: 1em;
 	color: var(--white);
 	font-size: var(--body-l);
@@ -98,6 +102,7 @@ input:not([type="checkbox"]), textarea, select {
 .button-secondary {
 	font-size: var(--body-l);
 	border-radius: 20px;
+	min-width: 150px;
 	padding: 1em;
 	background: var(--white);
 	color: var(--main-purple);
@@ -111,6 +116,7 @@ input:not([type="checkbox"]), textarea, select {
 
 .button-destructive {
 	font-size: var(--body-l);
+	min-width: 150px;
 	padding: 1em;
 	border-radius: 20px;
 	background: var(--red);
@@ -150,5 +156,36 @@ a {
 	font-size: var(--heading-m);
 	cursor: pointer;
 }
+
+
+@keyframes panel_close {
+	0%   {
+		opacity: 1;
+	}
+	100% {
+		display: none;
+		opacity: 0;
+	}
+}
+
+@keyframes panel_blur {
+	0% {
+		filter: blur(0px);
+	}
+	100% {
+		filter: blur(10px);
+		height: 0;
+	}
+}
+
+@keyframes panel_open {
+	0% {
+		opacity: 0;
+	}
+	100%   {
+		opacity: 1;
+	}
+}
+
 
 `

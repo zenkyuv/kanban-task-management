@@ -4,7 +4,9 @@ import {view} from "@chasemoskal/magical"
 import {styles} from "./styles.css.js"
 import {context} from "../../../../main.js"
 
-export const ToggleTheme = view({styles, shadow: true}, use => ({actions: {set_theme}}: context) => {
+export const ToggleTheme = view({styles, shadow: true}, use => (
+	{actions: {set_theme}}: context
+) => {
 
 	const [active, setActive] = use.state(false)
 

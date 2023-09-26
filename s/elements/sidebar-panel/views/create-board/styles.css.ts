@@ -2,15 +2,12 @@ import { css } from "lit";
 
 export const styles = css`
 
-:host {
-	display: flex;
-	padding: 0.5em 0.5em 0.5em 1em;
-	gap: 0.5em;
-	align-items: center;
-
-}
-
 a {
+	display: flex;
+	padding: 1em;
+	gap: 0.5em;
+	width: 80%;
+	align-items: center;
 	color: var(--main-purple);
 }
 

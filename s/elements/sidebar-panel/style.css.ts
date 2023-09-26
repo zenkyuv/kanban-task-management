@@ -1,56 +1,84 @@
-import { css } from "lit";
+import {css} from "lit"
 
 export const styles = css`
-	:host {
-		background-color: #2B2C37;
-		flex: 15%;
-		justify-content: space-between;
+
+:host {
+	background-color: #2B2C37;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+}
+
+.column:not([data-open]) {
+	animation: close 500ms forwards;
+}
+
+.column[data-open] {
+	animation: open 500ms forwards;
+}
+
+.sidebar-header {
+	display: flex;
+	margin: 1rem 1rem 2rem 1rem;
+	color: white;
+}
+
+.all-boards {
+	margin-left: 1rem;
+	margin-bottom: 1em;
+	font-size: 12px;
+	color: #828FA3;
+}
+
+.eye-open {
+	display: none;
+}
+
+.eye-open[data-closed] {
+	position: absolute;
+	display: block;
+	bottom: 5%;
+	width: 56px;
+	height: 48px;
+	border: none;
+	background: var(--main-purple);
+	cursor: pointer;
+	border-radius: 0 10px 10px 0;
+
+	&:hover {
+		background: var(--main-purple-hover);
 	}
-	.column {
-		display: flex;
-		flex-direction: column;
+
+}
+
+@keyframes close {
+	0%   {
+		width: 250px;
 	}
-	.sidebar-header {
-		display: flex;
-		margin: 1rem 1rem 2rem 1rem;
-		color: white;
+	100% {
+		width: 0;
+		display: none;
+		opacity: 0;
 	}
-	.all-boards {
-		margin-left: 1rem;
-		margin-bottom: 1em;
-		font-size: 12px;
-		color: #828FA3;
+}
+
+@keyframes open {
+	0% {
+		width: 0;
+		display: none;
+		opacity: 0;
 	}
-	.board-buttons, :host {
-		display: flex;
-		flex-direction: column;
+	100%   {
+		width: 250px;
+		display: block;
+		opacity: 1;
 	}
-	.board-buttons {
-		margin-right: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+	:host :is(.sidebar-header, .eye-open) {
+		display: none;
 	}
-	.board-button, .create-board-btn {
-		display: flex;
-		align-items: center;
-		padding: 0.6em 0.6em 0.6em 1em;
-		gap: 0.5em;
-	}
-	.board-button img, .create-board-btn img {
-		width: 20px;
-		height: 20px;
-	}
-	.board-button button {
-		color: #828FA3;
-		cursor: pointer;
-	}
-	.board-button[data-active] {
-		background-color: #635FC7;
-		border-top-right-radius: 25px;
-		border-bottom-right-radius: 25px;
-		color: white;
-		& button {color: white;}
-		& img {
-			filter: brightness(0) invert(1);
-			color: white;
-		}
-	}
+}
+
 `

@@ -8,7 +8,9 @@ import {mainStyles} from "../../../../main-styles.js"
 import {setup_state_manager} from "../../utils/setup_state_manager.js"
 import {renderCreateBoardPanel} from "../../renderers/render-create-board-panel.js"
 
-export const CreateBoardButton = view({styles: [styles, mainStyles], shadow: true}, use => (context: context) => {
+export const CreateBoardButton = view({styles: [styles, mainStyles], shadow: true}, use => (
+	context: context
+) => {
 
 	const [isPanelOpen, setPanelOpen] = use.state(false)
 	const [inputs, setInputs] = use.state(["Todo", "Doing"])
@@ -16,8 +18,8 @@ export const CreateBoardButton = view({styles: [styles, mainStyles], shadow: tru
 	const state_manager = setup_state_manager(setInputs, inputs, setPanelOpen)
 
 	return html`
-			<img src="/assets/icon-board.svg" />
 			<a @pointerdown=${() => setPanelOpen(true)}>
+				<img src="/assets/icon-board.svg" />
 				+Create New Board
 			</a>
 

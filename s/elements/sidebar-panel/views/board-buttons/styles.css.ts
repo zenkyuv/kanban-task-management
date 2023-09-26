@@ -3,22 +3,19 @@ import { css } from "lit";
 export const styles = css`
 
 a {
+	display: flex;
+	gap: 0.5em;
+	padding: 1em;
+	width: 80%;
+	color: var(--medium-grey);
+	align-items: center;
 	font-size: var(--heading-m);
 	cursor: pointer;
 }
 
-div {
-	display: flex;
-	gap: 0.5em;
-	padding: 0.5em 0.5em 0.5em 1em;
-	color: var(--medium-grey);
-	align-items: center;
-}
-
-div[data-active] {
+a[data-active] {
 	background: var(--main-purple);
 	color: var(--white);
-	width: 80%;
 	border-radius: 0 20px 20px 0;
 
 	& img {
@@ -27,5 +24,16 @@ div[data-active] {
 
 }
 
+a:not([data-active]):hover {
+	background: var(--white);
+	color: var(--main-purple);
+	width: 80%;
+	border-radius: 0 20px 20px 0;
+
+	& img {
+		filter: brightness(0) saturate(100%) invert(40%) sepia(12%) saturate(3707%) hue-rotate(207deg) brightness(93%) contrast(83%);
+	}
+
+}
 
 `

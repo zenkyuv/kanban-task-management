@@ -10,7 +10,7 @@ import {EditableInputs} from "../../../views/editable-inputs/view.js"
 
 export const AddNewTaskPanel = view({styles: [styles, mainStyles], shadow: true}, use => (
 	setPanelOpen: StateSetter<boolean>,
-	{actions: {add_task}}: context
+	{actions: {add_task}, state: {active_board}}: context
 ) => {
 
 	const [taskData, setTaskData] = use.state<TaskData>(
@@ -49,9 +49,9 @@ export const AddNewTaskPanel = view({styles: [styles, mainStyles], shadow: true}
 				${EditableInputs(actions.get_subtasks().map(s => s.placeholder), "subtask", "+ Add New Subtask")}
 				<label for="status">Status</label>
 				<select name="status">
-					<option>Todo</option>
-					<option>Doing</option>
-					<option>Done</option>
+				${active_board?.columns.map(c => html`
+					<option>${c.name}</option>
+				`)}
 				</select>
 				<button type="submit" class="button-primary-s">Create Task</button>
 			</form>

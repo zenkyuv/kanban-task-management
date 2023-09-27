@@ -69,4 +69,8 @@ p {
 	align-items: center;
 }
 
+input[type="checkbox"] {
+	pointer-events: none;
+}
+
 `

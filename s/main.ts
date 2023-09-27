@@ -3,7 +3,7 @@ import {obtool} from "@chasemoskal/magical"
 
 import data from "./data.js"
 import {NewTask} from "./elements/main-panel/types.js"
-import {Board, BoardData, Boards, Task} from "./types.js"
+import {Board, BoardData, Boards, Subtask, Task} from "./types.js"
 import {prepare_components} from "./utils/prepare_components.js"
 
 const publish = debounce(0, () => context.on_state_change.publish())
@@ -50,7 +50,6 @@ const context = {
 		remove_task(task: Task) {
 			const column_to_remove_from = context.state.active_board!
 				.columns.find(c => c.name === task.status)!
-			console.log(column_to_remove_from, task.status)
 			const filtered = column_to_remove_from.tasks.filter(t => t !== task)
 			column_to_remove_from.tasks = filtered
 		},
@@ -81,6 +80,9 @@ const context = {
 		},
 		set_board(data: Boards) {
 			context.state.data = data
+		},
+		toggle_subtask_completion(subtask: Subtask) {
+			subtask.isCompleted = !subtask.isCompleted
 		},
 		edit_task(task: Task, task_new: NewTask) {
 			if (task.title !== task_new.title) 

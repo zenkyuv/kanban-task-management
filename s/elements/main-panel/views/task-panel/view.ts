@@ -36,7 +36,7 @@ export const TaskPanel = view({styles: [styles, mainStyles], shadow: true}, use 
 					: null
 				}
 				<div class=subtasks>
-					${renderSubtasks(task_data)}
+					${renderSubtasks(task_data, context)}
 				</div>
 				<div class="current-status-box">
 					<label for="status">Current Status</label>

@@ -3,14 +3,17 @@
 	box-sizing: border-box;
 	font-family: Plus Jakarta Sans;
 }
+
 .panels {
 	display: flex;
 	height: 100%;
 }
+
 .column {
 	display: flex;
 	flex-direction: column;
 	flex: 85%;
+	overflow-x: scroll;
 }
 
 html, body, canvas {
@@ -20,6 +23,7 @@ html, body, canvas {
 }
 
 html {
+	overflow: hidden;
 	font-size: 24px;
 	/* colors */
 	--main-purple: #635FC7;
@@ -43,3 +47,11 @@ html {
 	--body-s: 0.5rem;
 }
 
+@media only screen and (max-width: 600px) {
+	sidebar-panel {
+		display: none;
+		& img {
+			display: none;
+		}
+	}
+}

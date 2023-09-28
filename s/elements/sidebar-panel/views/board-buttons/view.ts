@@ -15,7 +15,7 @@ export const BoardButtons = view({styles: [styles, mainStyles], shadow: true}, u
 			<a
 				?data-active=${board === active_board}
 				@pointerdown=${() => set_active_board(board)}>
-				<img src="/assets/icon-board.svg"/>
+				<img src="assets/icon-board.svg"/>
 				${board.name}
 			</a>
 		`)}

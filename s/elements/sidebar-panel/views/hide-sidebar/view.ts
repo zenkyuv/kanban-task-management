@@ -10,7 +10,7 @@ export const HideSidebar = view({styles: [styles, mainStyles], shadow: true}, us
 ) => {
 
 	return html`
-		<img src="/assets/icon-hide-sidebar.svg" />
+		<img src="assets/icon-hide-sidebar.svg" />
 		<button class="hide-sidebar" @pointerup=${toggle_sidebar}>Hide Sidebar</button>
 	`
 })

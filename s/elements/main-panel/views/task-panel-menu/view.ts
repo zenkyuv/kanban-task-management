@@ -22,7 +22,7 @@ export const TaskPanelMenu = view({styles: [styles, mainStyles], shadow: true}, 
 		<img
 		@pointerdown=${() => setMenuOpen(!menuOpen)}
 		class="menu-dots"
-		src="/assets/icon-vertical-ellipsis.svg">
+		src="assets/icon-vertical-ellipsis.svg">
 		${menuOpen
 			? html`
 				<div @pointerdown=${({target}: PointerEvent) => {

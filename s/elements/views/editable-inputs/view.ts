@@ -27,7 +27,7 @@ export const EditableInputs = view({shadow: false, styles: mainStyles}, use => (
 					>
 					<img
 						@pointerdown=${() => actions.remove_input(i)}
-						src="/assets/icon-cross.svg"/>
+						src="assets/icon-cross.svg"/>
 				</div>
 			`)}
 			<button type="button" @pointerdown=${actions.add_input} class="button-secondary">

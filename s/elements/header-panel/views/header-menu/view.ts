@@ -21,7 +21,7 @@ export const HeaderMenu = view({styles: [styles, mainStyles], shadow: true}, use
 		<img
 			@pointerdown=${() => setMenuOpen(!menuOpen)}
 			class="menu-dots"
-			src="/assets/icon-vertical-ellipsis.svg">
+			src="assets/icon-vertical-ellipsis.svg">
 
 		${menuOpen
 			? html`

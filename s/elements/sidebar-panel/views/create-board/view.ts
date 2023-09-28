@@ -19,7 +19,7 @@ export const CreateBoardButton = view({styles: [styles, mainStyles], shadow: tru
 
 	return html`
 			<a @pointerdown=${() => setPanelOpen(true)}>
-				<img src="/assets/icon-board.svg" />
+				<img src="assets/icon-board.svg" />
 				+Create New Board
 			</a>
 

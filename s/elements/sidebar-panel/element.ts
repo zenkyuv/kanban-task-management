@@ -15,7 +15,7 @@ export const SidebarPanel = (context: context) => class extends QuickElement {
 	render() {
 		return html`
 			<div ?data-open=${context.state.sidebarOpen} class=column>
-				<h1 class="sidebar-header"><img src="/assets/logo-light.svg"/></h1>
+				<h1 class="sidebar-header"><img src="assets/logo-light.svg"/></h1>
 				<p class="all-boards">ALL BOARDS ${context.state.data.boards.length}</p>
 				${BoardButtons(context)}
 				${CreateBoardButton(context)}
@@ -26,7 +26,7 @@ export const SidebarPanel = (context: context) => class extends QuickElement {
 			</div>
 
 			<button @pointerup=${context.actions.toggle_sidebar} class="eye-open" ?data-closed=${!context.state.sidebarOpen}>
-				<img src="/assets/icon-show-sidebar.svg" />
+				<img src="assets/icon-show-sidebar.svg" />
 			</button>
 		`
 	}

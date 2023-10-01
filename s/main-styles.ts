@@ -52,6 +52,14 @@ input:not([type="checkbox"]), textarea, select {
 	}
 }
 
+select {
+	cursor: pointer;
+}
+
+option {
+	background: var(--dark-grey);
+}
+
 .editable-inputs {
 	display: flex;
 	flex-direction: column;
@@ -187,5 +195,22 @@ a {
 	}
 }
 
+
+::-webkit-scrollbar {
+  width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-purple);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 `

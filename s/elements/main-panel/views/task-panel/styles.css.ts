@@ -33,6 +33,7 @@ p {
 	border-radius: 4px;
 	margin-left: 0.5em;
 	align-items: center;
+	cursor: pointer;
 }
 
 .subtask[data-checked] label {

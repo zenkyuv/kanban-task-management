@@ -5,9 +5,9 @@ export const styles = css`
 :host {
 	background-color: #20212C;
 	display: flex;
-	flex: 80%;
 	flex-direction: column;
-	overflow-x: scroll;
+	overflow-x: auto;
+	height: 100%;
 }
 
 .columns, .headers, .tasks {

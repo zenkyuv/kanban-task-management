@@ -20,7 +20,7 @@ const context = {
 		data,
 		active_board: data.boards[0] as undefined | Board,
 		theme_mode: "light",
-		sidebarOpen: true
+		sidebar_open: true
 	},
 	on_state_change: pub<void>(),
 	actions: prepare_actions({
@@ -33,7 +33,7 @@ const context = {
 			return context.state.data.boards
 		},
 		toggle_sidebar() {
-			context.state.sidebarOpen = !context.state.sidebarOpen
+			context.state.sidebar_open = !context.state.sidebar_open
 		},
 		set_active_board(board: Board) {
 			context.state.active_board = board

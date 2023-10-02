@@ -1,5 +1,5 @@
 export interface HeaderMenuState {
-	hide_panel: (e: PointerEvent, panelName: string) => void
+	hide_panel: (e: PointerEvent) => void
 }
 
 export interface AddNewTaskState {

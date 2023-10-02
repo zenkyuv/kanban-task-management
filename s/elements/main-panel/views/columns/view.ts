@@ -21,7 +21,7 @@ export const Columns = view({styles: [styles, mainStyles], shadow: true}, use =>
 			<div class=column>
 				<h2 class="column-name">${name}</h2>
 				<div ?data-notasks=${!(!!tasks)} class=tasks>${tasks?.map(task => html`
-					<div @pointerup=${() => setTaskViewData(task)} class=task>
+					<div @click=${() => setTaskViewData(task)} class=task>
 						<h3>${task.title}</h3>
 						<p>${task.subtasks.filter(({isCompleted}) => isCompleted).length} out of ${task.subtasks.length}</p>
 					</div>`)}

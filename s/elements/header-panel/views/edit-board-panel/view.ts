@@ -17,7 +17,7 @@ export const EditBoardPanel = view({styles: [styles, mainStyles], shadow: true},
 	const actions = setup_state_actions(columnNameInputs, setColumnNameInputs)
 	
 	return html`
-		<div @pointerdown=${hide_panel} class="panel-background">
+		<div @click=${hide_panel} class="panel-background">
 			<form @submit=${(e: SubmitEvent) => edit_board(actions.get_board_data(e))} 
 				class=panel>
 				<h2>Edit board</h2>

@@ -12,7 +12,7 @@ export const ToggleTheme = view({styles, shadow: true}, use => (
 
 	return html`
 		<img src="assets/icon-light-theme.svg" />
-		<button @pointerdown=${() => {setActive(!active); set_theme()}}>
+		<button @click=${() => {setActive(!active); set_theme()}}>
 			<div class="circle" ?data-active=${active}></div>
 		</button>
 		<img src="assets/icon-dark-theme.svg" />

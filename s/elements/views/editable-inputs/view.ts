@@ -26,11 +26,11 @@ export const EditableInputs = view({shadow: false, styles: mainStyles}, use => (
 						@input=${(e: InputEvent) => actions.set_input_value(i, e)}
 					>
 					<img
-						@pointerdown=${() => actions.remove_input(i)}
+						@click=${() => actions.remove_input(i)}
 						src="assets/icon-cross.svg"/>
 				</div>
 			`)}
-			<button type="button" @pointerdown=${actions.add_input} class="button-secondary">
+			<button type="button" @click=${actions.add_input} class="button-secondary">
 				${button_text}
 			</button>
 		</div>

@@ -20,23 +20,23 @@ export const TaskPanelMenu = view({styles: [styles, mainStyles], shadow: true}, 
 
 	return html`
 		<img
-		@pointerdown=${() => setMenuOpen(!menuOpen)}
+		@click=${() => setMenuOpen(!menuOpen)}
 		class="menu-dots"
 		src="assets/icon-vertical-ellipsis.svg">
 		${menuOpen
 			? html`
-				<div @pointerdown=${({target}: PointerEvent) => {
+				<div @click=${({target}: PointerEvent) => {
 					if((target as HTMLElement).className === "panel-background")
 					setMenuOpen(!menuOpen)
 				}} class=panel-background>
 					<div class=menu-items>
-						<p class="p-edit" @pointerdown=${() => {
+						<p class="p-edit" @click=${() => {
 							setActivePanel("edit_task")
 							setMenuOpen(false)
 						}}>
 							Edit Task
 						</p>
-						<p class="p-delete" @pointerdown=${() => {
+						<p class="p-delete" @click=${() => {
 							setActivePanel("delete_task")
 							setMenuOpen(false)
 						}}>

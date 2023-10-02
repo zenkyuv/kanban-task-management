@@ -7,7 +7,7 @@ export function renderSubtasks(task: Task | null, context: context) {
 	return html`
 		<p>Subtasks (${task?.subtasks.filter(({isCompleted}) => isCompleted).length} out of ${task?.subtasks.length})</p>
 		${task?.subtasks.map((subtask, i) => html`
-			<div @pointerdown=${() => context.actions.toggle_subtask_completion(subtask)}
+			<div @click=${() => context.actions.toggle_subtask_completion(subtask)}
 				?data-checked="${subtask.isCompleted}"
 				class=subtask
 				>

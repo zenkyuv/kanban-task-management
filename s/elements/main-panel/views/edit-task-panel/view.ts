@@ -19,7 +19,7 @@ export const EditTaskPanel = view({styles: [styles, mainStyles], shadow: true}, 
 	const actions = setup_state_actions()
 
 	return html`
-		<div @pointerdown=${hide_task_panel} class=panel-background>
+		<div @click=${hide_task_panel} class=panel-background>
 			<form slot="form" @submit=${(e: SubmitEvent) => edit_task(task_data, actions.get_new_task_data(e))}
 				class=panel>
 				<h2>Edit Task</h2>

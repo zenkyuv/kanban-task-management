@@ -34,7 +34,6 @@ export function setup_state_actions(
 			},
 			get_subtasks: () => taskData.subtasks,
 			hide_panel: (e: PointerEvent | SubmitEvent) => {
-				console.log((e.target as HTMLElement).className)
 				if ((e.target as HTMLElement).className === "panel-background")
 					setPanelOpen(false)
 			},

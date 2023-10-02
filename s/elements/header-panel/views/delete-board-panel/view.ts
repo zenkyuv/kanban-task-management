@@ -13,13 +13,19 @@ export const DeleteBoardPanel = view({styles: [styles, mainStyles], shadow: true
 ) => {
 
 	return html`
-		<div @pointerdown=${hide_panel} class="panel-background">
+		<div @click=${hide_panel} class="panel-background">
 			<div class="panel">
 				<h2>Delete this board?</h2>
 				<p>Are you sure you want to delete the 'Platform Launch' board? This action will remove all columns and tasks and cannot be reversed.</p>
 				<div class="btn-row">
-					<button @pointerdown=${delete_board} class="button-destructive">Delete</button>
-					<button @pointerdown=${hide_panel} class="button-secondary">Cancel</button>
+					<button @click=${(e: PointerEvent) => {
+						delete_board()
+						hide_panel(e)
+					}}
+					class="button-destructive">
+						Delete
+					</button>
+					<button @click=${hide_panel} class="button-secondary">Cancel</button>
 				</div>
 			</div>
 		</div>

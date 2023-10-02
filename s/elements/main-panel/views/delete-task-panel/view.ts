@@ -13,16 +13,16 @@ export const DeleteTaskPanel = view({styles: [styles, mainStyles], shadow: true}
 ) => {
 
 	return html`
-	<div @pointerdown=${hide_menu_panel} class="panel-background">
+	<div @click=${hide_menu_panel} class="panel-background">
 			<div class="panel">
 				<h2>Delete this task?</h2>
 				<p>Are you sure you want to delete the ‘Build settings UI’ task and its subtasks? This action cannot be reversed.</p>
 				<div class="btn-row">
-					<button @pointerdown=${(e: PointerEvent) => {
+					<button @click=${(e: PointerEvent) => {
 						remove_task(task_data)
 						hide_task_panel(e)
 						}} class="button-destructive">Delete</button>
-					<button @pointerdown=${(e: PointerEvent) => e.preventDefault()} class="button-secondary">
+					<button @click=${hide_task_panel} class="button-secondary">
 						Cancel
 					</button>
 				</div>

@@ -16,14 +16,14 @@ export const Header = view({styles: [styles, mainStyles], shadow: true}, use => 
 	return html`
 		<div class="main-header">
 			<img src="assets/logo-mobile.svg" class="icon" />
-			<h1 @pointerdown=${() => setSidebarOpen(!sidebarOpen)}>
+			<h1 @click=${() => setSidebarOpen(!sidebarOpen)}>
 				Platform Launch
 				<img src="assets/icon-chevron-down.svg" />
 			</h1>
 		</div>
-		${sidebarOpen 
+		${sidebarOpen
 			?	html`
-				<div @pointerup=${(e: PointerEvent) => {
+				<div @click=${(e: PointerEvent) => {
 					if ((e.target as HTMLElement).className === "panel-background")
 					setSidebarOpen(!sidebarOpen)}
 				} class="panel-background">

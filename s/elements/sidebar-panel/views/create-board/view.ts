@@ -18,7 +18,7 @@ export const CreateBoardButton = view({styles: [styles, mainStyles], shadow: tru
 	const state_manager = setup_state_manager(setInputs, inputs, setPanelOpen)
 
 	return html`
-			<a @pointerdown=${() => setPanelOpen(true)}>
+			<a @click=${() => setPanelOpen(true)}>
 				<img src="assets/icon-board.svg" />
 				+Create New Board
 			</a>

@@ -10,7 +10,7 @@ export function renderCreateBoardPanel(
 
 	return html`
 		<div
-			@pointerdown=${state.hide_create_board_panel}
+			@click=${state.hide_create_board_panel}
 			class=panel-background>
 			<form @submit=${add_new_board} class=panel>
 				<h2>Add New Board</h2>

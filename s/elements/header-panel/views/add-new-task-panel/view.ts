@@ -30,7 +30,7 @@ export const AddNewTaskPanel = view({styles: [styles, mainStyles], shadow: true}
 	)
 
 	return html`
-		<div @pointerup=${actions.hide_panel} class="panel-background">
+		<div @click=${actions.hide_panel} class="panel-background">
 			<form @submit=${(e: SubmitEvent) => {
 				const formData = actions.get_task_data(e)
 				if(formData) {

@@ -24,7 +24,7 @@ export const TaskPanel = view({styles: [styles, mainStyles], shadow: true}, use 
 			? EditTaskPanel(context, columns_state, actions)
 			: html`
 		<div
-			@pointerup=${hide_task_panel}
+			@click=${hide_task_panel}
 			class="panel-background">
 			<div class="panel">
 				<div class="flex-row">

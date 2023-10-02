@@ -9,8 +9,8 @@ export function setup_state_actions(
 	return {
 		hide_task_panel: ({target}: PointerEvent | Event) => {
 			if ((target as HTMLElement).className === "panel-background"
-				|| (target as HTMLElement).className === "btn-cancel"
-				|| (target as HTMLElement).className === "btn-delete")
+				|| (target as HTMLElement).className === "button-secondary"
+				|| (target as HTMLElement).className === "button-destructive")
 				setTaskViewData(null)
 		},
 		task_data: taskViewData!

@@ -14,7 +14,7 @@ export const AddNewTaskButton = view({styles: [styles, mainStyles], shadow: true
 	const [panelOpen, setPanelOpen] = use.state(false)
 
 	return html`
-		<button @pointerup=${() => setPanelOpen(!panelOpen)} class="button-primary-l ebe">
+		<button @click=${() => setPanelOpen(!panelOpen)} class="button-primary-l ebe">
 			<span>+ Add New Task</span>
 			<img src="assets/icon-add-task-mobile.svg" />
 		</button>

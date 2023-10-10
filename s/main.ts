@@ -63,14 +63,10 @@ const context = {
 			context.state.theme_mode = "dark"
 			} else context.state.theme_mode = "light"
 		},
-		add_new_board(e: SubmitEvent) {
-			e.preventDefault()
-			const formData = new FormData(e.target as HTMLFormElement)
-			const boardName = formData.get("board-name") as string
-			const boardColumnNames = formData.getAll("board-column-name") as string[]
-			if (boardName && boardColumnNames) {
+		add_new_board({boardName, boardColumnsNames}: BoardData) {
+			if (boardName && boardColumnsNames) {
 				context.actions.get_boards().push({
-					name: boardName, columns: [...boardColumnNames.map(columnName => {
+					name: boardName, columns: [...boardColumnsNames.map(columnName => {
 						return {
 							name: columnName, tasks: []
 						}

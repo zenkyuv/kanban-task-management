@@ -16,6 +16,7 @@ export function renderCreateBoardPanel(
 				<h2>Add New Board</h2>
 				<label for="board-name">Board Name</label>
 				<input
+					required
 					placeholder="e.g. Web Design"
 					name=board-name 
 				/>

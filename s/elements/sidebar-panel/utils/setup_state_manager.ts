@@ -24,7 +24,7 @@ export function setup_state_manager(
 		get_board_data: (e: SubmitEvent) => {
 			e.preventDefault()
 			const formData = new FormData(e.target as HTMLFormElement)
-			const boardName = formData.get("board name") as string
+			const boardName = formData.get("board-name") as string
 			const boardColumnsNames = formData.getAll("board-column-name") as string[]
 			return {boardName, boardColumnsNames}
 		}
